@@ -1,6 +1,6 @@
 # Inkubator
 
-**Exercise: Warmup**
+**1 Exercise: Warmup**
 
 
 Write an application that for each lower camel case word supplied as a command line
@@ -13,7 +13,7 @@ use
 camel_case
 in_the_project
 
-**Exercise: Warmup+**
+**2 Exercise: Warmup+**
 
 
 Write an application that for each lower camel case word supplied as a tetx file
