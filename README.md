@@ -11,11 +11,11 @@ argument will print its snake case equivalent. For example, running your applica
 
 Should produce this output:
 
-we_actually
+```we_actually
 use
 camel_case
 in_the_project
-
+```
 **2 Exercise: Warmup+**
 
 
@@ -27,9 +27,9 @@ will print its snake case equivalent. For example, running your application name
 
 words.txt looks like:
  
-thisIs
+```thisIs
 
 anExampleProgram
 
 contentAndInputData
-
+```
