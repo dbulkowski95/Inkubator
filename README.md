@@ -29,8 +29,6 @@ words.txt looks like:
  
 ```
 thisIs
-
 anExampleProgram
-
 contentAndInputData
 ```
