@@ -24,5 +24,8 @@ will print its snake case equivalent. For example, running your application name
 words.txt looks like:
  
 thisIs
+
 anExampleProgram
-contentAndInputData\n
+
+contentAndInputData
+
