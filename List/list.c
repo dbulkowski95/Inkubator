@@ -30,6 +30,7 @@ int listPush(list* _pList, size_t data){
 }
 
 void clearNode(list* _pList){
+	assert(_pList != NULL);
 	node *_clearNodes = _pList->head;
 	node *_tempNode = NULL;
 	while(_clearNodes != NULL){
@@ -38,17 +39,14 @@ void clearNode(list* _pList){
 		_clearNodes = NULL;
 		_clearNodes = _tempNode;
 	}
-//	_clearNodes = NULL;
-//	free(_clearNodes);
-//	_tempNode = NULL;
-//	free(_tempNode);
 }
 
 void printList(const list* _pPrintList){
+	assert(_pPrintList!=NULL);
 	node *printList = _pPrintList->head;
 	while(printList != NULL){
 		printf("|Head->value: %zu|\n",printList->value);
-		printf("|H->ptr:\t%p|\n",printList->nextNode);
+		printf("|H->ptr:%p|\n",printList->nextNode);
 		printList = (node*)printList->nextNode;
 	}
 }
@@ -56,12 +54,15 @@ void printList(const list* _pPrintList){
 int main(){
 	list *_hPtr = NULL;
 	_hPtr = malloc(sizeof(list));
+
 	listPush(_hPtr,10);
 	listPush(_hPtr,20);
 	listPush(_hPtr,30);
 	listPush(_hPtr,40);
 	listPush(_hPtr,50);
+
 	printList(_hPtr);
+	printf("\n");
 	clearNode(_hPtr);
 	printList(_hPtr);
 	free(_hPtr);
