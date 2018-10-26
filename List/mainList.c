@@ -1,17 +1,17 @@
 #include "list.h"
 
 int main(){
-	list *_hPtr = malloc(sizeof(list));
-	insert(_hPtr,10);
-	insert(_hPtr,20);
-	insert(_hPtr,30);
-	insert(_hPtr,40);
-	insert(_hPtr,50);
+	list *list_p = malloc(sizeof(list));
+	list_p->head = NULL;
+	push_back(list_p,10);
+	push_back(list_p,20);
+	push_back(list_p,30);
+	push_back(list_p,40);
+	push_back(list_p,50);
 
-	printList(_hPtr);
+	print(list_p);
 	printf("\n");
-	clearNode(_hPtr);
-	//printList(_hPtr);
-	free(_hPtr);
+	clear(list_p);
+	free(list_p);
 	return 0;
 }

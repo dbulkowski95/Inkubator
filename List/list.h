@@ -1,11 +1,12 @@
 #ifndef LIST_H_
 #define LIST_H_
-#include <stdlib.h>
-#include <stdio.h>
 #include <assert.h>
-typedef struct{
-	int value;
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct node{
 	struct node *nextNode;
+	int value;
 }node;
 
 typedef struct{
@@ -13,8 +14,8 @@ typedef struct{
 }list;
 
 
-int insert(list* _pList, int data);
-void clearNode(list* _pList);
-void printList(const list* _pPrintList);
+int push_back(list *list_p, int data);
+void clear(list *list_p);
+void print(const list *list_p);
 
 #endif /* LIST_H_ */
