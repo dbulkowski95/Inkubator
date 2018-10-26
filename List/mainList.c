@@ -1,6 +1,3 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <assert.h>
 #include "list.h"
 
 int main(){
@@ -18,4 +15,3 @@ int main(){
 	free(_hPtr);
 	return 0;
 }
-

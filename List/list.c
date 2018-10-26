@@ -1,10 +1,7 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <assert.h>
 #include "list.h"
 
 
-int insert(list* _pList, size_t data){
+int insert(list* _pList, int data){
 	assert(_pList != NULL); //precondition
 	node *_currentNode = _pList->head;
 	if(_pList->head == NULL){
@@ -38,7 +35,7 @@ void printList(const list* _pPrintList){
 	assert(_pPrintList!=NULL);
 	node *_printList = _pPrintList->head;
 	while(_printList != NULL){
-		printf("|Head->value: %zu|\n",_printList->value);
+		printf("|Head->value: %d|\n",_printList->value);
 		printf("|H->ptr:%p|\n",_printList->nextNode);
 		_printList = (node*)_printList->nextNode;
 	}
