@@ -1,15 +1,13 @@
 #include "list.h"
-#include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
 
 int push_back(list *list_p, int data)
 {
-	if(list_p == NULL)
+	if(!list_p)
 	{
-		printf("Uninitalized list");
-		list_p = init();
-//		assert(list_p != NULL); //precondition
+		printf("Uninitalized list\n");
+	    return -1;
 	}
 	if(list_p->head == NULL){
 		list_p->head = malloc(sizeof(node));
@@ -30,10 +28,13 @@ int push_back(list *list_p, int data)
 
 int clear(list *list_p)
 {
+	if(!list_p)
+	{
+		return -1;
+	}
 	if(list_p->head == NULL)
 	{
-		free(list_p);
-		list_p = NULL;
+		printf("no list to clear\n");
 		return 0;
 	}
 	node *temp_node_p = NULL;
@@ -45,15 +46,14 @@ int clear(list *list_p)
 		list_p->head = temp_node_p;
 	}
 	printf("List Clear. No nodes here\n");
-	return 0;
-}
+	return 1;
+	}
 
 int print(const list *print_p)
 {
-	if(print_p->head == NULL)
+	if(!print_p)
 	{
-		printf("Empty list...\n");
-		return 0;
+		return -1;
 	}
 	node *print_list_p = print_p->head;
 	while(print_list_p != NULL)
@@ -62,27 +62,38 @@ int print(const list *print_p)
 		printf("|H->ptr:%p|\n",print_list_p->nextNode);
 		print_list_p = print_list_p->nextNode;
 	}
-	return 0;
-}
-
-int pop_front(list *pop_list_p)
-{
-//	assert(pop_list_p != NULL); //precondition
-	node *temp_node_p = pop_list_p->head;
-	if(temp_node_p == NULL)
+	if(print_p->head == NULL)
 	{
 		printf("Empty list...\n");
 		return 0;
 	}
+	return 1;
+}
+
+int pop_front(list *pop_list_p)
+{
+	if(!pop_list_p)
+	{
+		return -1;
+	}
+	if(pop_list_p->head == NULL)
+	{
+		printf("Empty list...\n");
+		return 0;
+	}
+	node *temp_node_p = pop_list_p->head;
 	pop_list_p->head = pop_list_p->head->nextNode;
 	free(temp_node_p);
 	temp_node_p = NULL;
-	return 0;
+	return 1;
 }
 
 int pop_back(list *pop_list_p)
 {
-//	assert(pop_list_p != NULL); //precondition
+	if(!pop_list_p)
+	{
+		return -1;
+	}
 	if(pop_list_p->head == NULL)
 	{
 		printf("Empty list...\n");
@@ -114,7 +125,8 @@ int pop_back(list *pop_list_p)
 
 list *init(void)
 {
-	list *init_p = malloc(sizeof(*init_p));
+	list *init_p = malloc(sizeof(list));
 	init_p->head = NULL;
 	return init_p;
 }
+
